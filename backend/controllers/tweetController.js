@@ -44,7 +44,7 @@ export const deleteTweet=async(req,res)=>{
 export const likeOrDislike=async(req,res)=>{
     try{
         const loggedInUserId=req.body.id;
-        const tweetId=req.params.id,
+        const tweetId=req.params.id;
         const tweet=await Tweet.findById(tweetId);
         if(tweet.like.include(loggedInUserId)){
             //dislike

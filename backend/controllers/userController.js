@@ -1,5 +1,5 @@
-import {User, User} from "../models/userSchema.js";
-import bcryptjs from "bcryptjs";
+import {User} from "../models/userSchema.js";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const Register=async(req,res)=>{
@@ -19,7 +19,7 @@ export const Register=async(req,res)=>{
                 success:false
             })
         }
-        const hashedPassword=await bcryptjs.hash(password,16);
+        const hashedPassword=await bcrypt.hash(password,16);
 
         await User.create({
             name,
@@ -158,7 +158,7 @@ export const unfollow=async(req,res)=>{
         const user=await User.findById(userId)
         if(loggedInUser.following.includes(UserId)){
             await user.updateOne({$pull:{followers:loggedInUserId}})
-            await loggedInUser.updateOne({$pull:following:userId})
+            await loggedInUser.updateOne({$pull:{following:userId}})
         }else{
             return res.status(400).json({
                 message:`User has not followed yet`
