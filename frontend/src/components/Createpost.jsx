@@ -1,0 +1,30 @@
+import React from 'react'
+
+import Avatar from 'react-avatar';
+
+const Createpost = () => {
+  return (
+    <div className='w-[50%]'>
+       <div className='m-3'>
+        <div className='flex items-center justify-between border border-gray-700'>
+            <div>
+                <h1 className='font-bold text-gray-700 txt-lg'>For You</h1>
+
+            </div>
+            <div className='cursor-pointer'>
+                <h1 className='font-bold text-gray-700 txt-lg'>Following</h1>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <Avatar googleId="118096717852922241760" size="100" round={true} />
+                <input/>
+            </div>
+        </div>
+       </div>
+    </div>
+  )
+}
+
+export default Createpost

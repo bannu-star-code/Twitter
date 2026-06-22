@@ -5,11 +5,11 @@ import RightSideBar from './RightSideBar.jsx'
 
 const Home = () => {
   return (
-    <>
-    <LeftSideBar/>
+    <div className='flex justify-between w-[80%] mx-auto'>
+      <LeftSideBar/>
     <Feed/>
     <RightSideBar/>
-    </>
+    </div>
   )
 }
 
