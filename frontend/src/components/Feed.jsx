@@ -1,10 +1,12 @@
 import React from 'react'
 import Createpost from './Createpost'
+import Tweet from './Tweet'
 
 const Feed = () => {
   return (
-    <div className='w-[60%]'>
+    <div className='w-[50%]'>
       <Createpost/>
+      <Tweet/>
     </div>
   )
 }
