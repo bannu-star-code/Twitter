@@ -1,6 +1,7 @@
 
 import './App.css'
 import Home from './components/Home.jsx'
+import Body from './components/Body.jsx'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -8,7 +9,8 @@ function App() {
   return (
     <>
      <div className='App'>
-      <Home/>
+      {/* <Home/> */}
+      <Body/>
      </div>
     </>
   )

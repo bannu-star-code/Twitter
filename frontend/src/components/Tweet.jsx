@@ -7,7 +7,7 @@ import { CiBookmark } from "react-icons/ci";
 
 const Tweet = () => {
   return (
-    <div>
+    <div className='border-b m-2 border-gray-400'>
         <div>
             <div className='flex'>
                 <div className='mx-2'><Avatar googleId="118096717852922241760" size="40" round={true} /></div>
@@ -20,14 +20,22 @@ const Tweet = () => {
                 </div>
 
                 <div className='flex justify-between w-full'>
-                    <div className='flex items-center'><CiHeart />
-                    <p>0</p>
+                    <div className='flex items-center'>
+                        <div className='p-2 hover:bg-yellow-200 rounded-full cursor-pointer'>
+                            <CiHeart />
+                        </div>
+                        <p>0</p>
                     </div>
-                    <div className='flex items-center'><FaComment />
+                    <div className='flex items-center'>
+                        <div className='p-2 hover:bg-yellow-200 rounded-full cursor-pointer'>
+                            <FaComment />
+                        </div>
                     <p>0</p>
                     </div>
                     <div className='flex items-center'>
+                        <div className='p-2 hover:bg-yellow-200 rounded-full cursor-pointer'>
                         <CiBookmark />
+                        </div>
                         <p>0</p>
                     </div>
             
@@ -35,7 +43,7 @@ const Tweet = () => {
                 </div>
             </div>
         </div>
-    </div>
+ </div>
   )
 }
 

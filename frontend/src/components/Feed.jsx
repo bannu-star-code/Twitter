@@ -7,6 +7,12 @@ const Feed = () => {
     <div className='w-[50%]'>
       <Createpost/>
       <Tweet/>
+      <Tweet/>
+      <Tweet/>
+      <Tweet/>
+      <Tweet/>
+      <Tweet/>
+      <Tweet/>
     </div>
   )
 }
