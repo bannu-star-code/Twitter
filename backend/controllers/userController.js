@@ -41,21 +41,21 @@ export const Register=async(req,res)=>{
 export const Login=async(req,res)=>{
     try{
         const {email,password}=req.body;
-        if(!email, !password){
+        if(!email || !password){
             return res.status(401).json({
                 message:"All fields are required",
                 success:false
             })
         };
 
-        const User=await User.findOne({email})
+        const user = await User.findOne({email})
         if(!user){
             return res.status(401).json({
                 message:"Incorrect email or password",
                 success:false
             })
         }
-        const isMatch=await bcryptjs.compare(password, user.password)
+        const isMatch=await bcrypt.compare(password, user.password)
         if (!isMatch){
             return res.status(401).json({
                 message:"Incorrect email or password",
@@ -65,9 +65,10 @@ export const Login=async(req,res)=>{
         const tokenData={
             userId:user._id
         }
-        const token=await jwt.sign(tokenData, process.env.TOKEN_SECRET, {expiresIn:"1d"});
+        const token=jwt.sign(tokenData, process.env.TOKEN_SECRET, {expiresIn:"1d"});
         return res.status(201).cookie("token", token,{
-            expiresIn:"1d", httpOnly:true
+            maxAge:24 * 60 * 60 * 1000,
+            httpOnly:true
         }).json({
             message:`Welcome BAck ${user.name}`,
             user,
